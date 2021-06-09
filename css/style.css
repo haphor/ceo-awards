@@ -648,6 +648,27 @@ input[type="file"] {
         font-size: 10px;
         padding: 4px 3px;
     }
+    section#banner {
+        background-size: contain !important;
+        background: url(img/page-bg.png) no-repeat right 0px #000 !important;
+    }
+    .home header {
+        position: relative;
+    }
+    footer {
+        padding: 10px 0 0px;
+    }
+    footer p {
+        font-size: 13px;
+    }
+    .caption {
+        bottom: 13%;
+    }
+    .caption p {
+        width: 56%;
+        line-height: 16px;
+        font-size: 14px !important;
+    }
 }
 
 @media screen and (min-width:0px) and (max-width:695px) {
@@ -718,7 +739,8 @@ input[type="file"] {
         width: 85%;
         position: relative;
         margin: 5% auto;
-        padding: 7% 0px 17%;
+        padding: 0%;
+        /*padding: 7% 0px 17%;*/
         /* padding: 11% 0px 4.4%; */
     }
     #banner #profession {

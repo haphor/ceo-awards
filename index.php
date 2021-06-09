@@ -5,7 +5,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>I Am More</title>
+ <title>CEO Awards</title>
  <!--Favicon-->
  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
  <!-- Lato GoogleFont-->
@@ -42,9 +42,9 @@
     <div class="content-header d-flex align-items-start">
      <img src="./img/page-header.png" alt="Page Header">
     </div>
-    <div class="d-flex align-items-center justify-content-end mt-5">
-     <h2 style="font-size: 2rem; font-weight: bold; color: #fff; margin-bottom: 0px;">Watermarking Portal</h2>
-     <a href="#start" id="start-scroll" class="ml-4 btn btn-start">Begin Here</a>
+    <div class="d-md-flex align-items-center justify-content-end text-right mt-5">
+     <h2  class="mr-4" style="font-size: 2rem; font-weight: bold; color: #fff; margin-bottom: 0px;">Watermarking Portal</h2>
+     <a href="#start" id="start-scroll" class="btn btn-start">Begin Here</a>
     </div>
    </div>
   </section>
