@@ -30,6 +30,7 @@
 
 	if(isset($_POST['btn_insert']))
 	{
+    $caption=$_POST['caption'];
 
     $images2=$_FILES['side_hustle']['name'];
 		$tmp_dir2=$_FILES['side_hustle']['tmp_name'];
@@ -40,7 +41,8 @@
 		$valid_extensions=array('jpeg', 'jpg', 'png', 'gif', 'pdf');
 		$sideProfile=rand(1000, 1000000).".".$imgExt2;
 		move_uploaded_file($tmp_dir2, $upload_dir.$sideProfile);
-		$stmt=$db_conn->prepare('INSERT INTO morethan_award( side ) VALUES ( :spic )');
+		$stmt=$db_conn->prepare('INSERT INTO morethan_award( side, caption ) VALUES ( :spic, :desc )');
+    $stmt->bindParam(':desc', $caption);
 		$stmt->bindParam(':spic', $sideProfile);
 		if($stmt->execute())
 		{
@@ -59,7 +61,7 @@
  <?php
 		}
 
-    $_SESSION['user_id'] = $email;
+    $_SESSION['user_id'] = $sideProfile;
 	}
 ?>
  <!-- end Insert script -->
@@ -80,33 +82,27 @@
   <div class="container">
    <div id="downloadable" class="content">
     <!-- <span id="slant-acr"></span> -->
-    <img id="default-bg" src="img/the-ceo-awards-filter.png" alt="Generated Image Background">
+    <img id="default-bg" src="img/the-ceo-awards-filter-new.png" alt="Generated Image Background">
     <?php
-        // $last_id = 1;
-        $last_id = $_SESSION['user_id'];
-        // $last_id = $db_conn->lastInsertId();
-        $select_stmt=$db_conn->prepare("SELECT * FROM morethan_award LIMIT 1"); //sql select query
-        $select_stmt->bindParam(':id', $last_id );
-        $select_stmt->execute();
-        while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
-        {
-          if (($row['show_t'])== 'yes') {
-            $word = $row['addon']; // put word for which you want prefix
-          } else {
-            $word = ''; // put word for which you want prefix
-            $word1 = '&nbsp;'; // put word for which you want prefix
-          }
-        ?>
+      // $last_id = 1;
+      $last_id = $_SESSION['user_id'];
+      // $last_id = $db_conn->lastInsertId();
+      $select_stmt=$db_conn->prepare("SELECT * FROM morethan_award WHERE side=:id LIMIT 1"); //sql select query
+      $select_stmt->bindParam(':id', $last_id );
+      $select_stmt->execute();
+      while($row=$select_stmt->fetch(PDO::FETCH_ASSOC)) {
+    ?>
     <div id="download-content">
      <!-- <p><?php echo session_id(); ?></p>
         <p><?php echo $_SESSION['user_id']; ?></p> -->
-     <div id="merged-img" class="clearfix">
+      <div id="merged-img" class="clearfix">
+        <div class="caption">
+          <p>"<?php echo $row['caption']; ?>"</p>
+        </div>
       <div id="side-img" style="width: 100%;"><img src="upload/<?php echo $row['side']; ?>" width="1000px" height="1000px"></div>
      </div>
     </div>
-    <?php
-        }
-        ?>
+    <?php } ?>
    </div>
   </div>
  </section>

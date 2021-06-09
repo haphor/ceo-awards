@@ -77,6 +77,7 @@
             <input type="file" name="side_hustle" id="input-file-side-hustle" class="file-upload" tabindex="6"
              style="position: absolute; top: 0; left: -100%; opacity: 0; width: 1000%; height: 100%; display: block;">
            </div>
+           <input type="text" name="caption" placeholder="Enter your watermark caption here" tabindex="7" class="form-control" required>
            <p id="error3"></p>
           </div>
          </div>
