@@ -1,0 +1,771 @@
+/* CUSTOM STYLES */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+body {
+    color: #323e48;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1.7;
+}
+
+ul,
+ol {
+    padding: 0;
+}
+
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    -webkit-transition: all 0.25s cubic-bezier(0, .52, .39, 1);
+    -moz-transition: all 0.25s cubic-bezier(0, .52, .39, 1);
+    -ms-transition: all 0.25s cubic-bezier(0, .52, .39, 1);
+    -o-transition: all 0.25s cubic-bezier(0, .52, .39, 1);
+    transition: all 0.25s cubic-bezier(0, .52, .39, 1);
+}
+
+#banner,
+section#home {
+    width: 100%;
+    display: table;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+}
+
+section#home {
+    background-color: #f9ac1d;
+}
+
+header {
+    background-color: #fff;
+    padding: 0 7%;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+.home header {
+    position: fixed;
+}
+
+footer {
+    background-color: #fff;
+    position: fixed;
+    padding: 15px 0 5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+
+#logos {
+    margin: 6px 0px;
+}
+
+.navbar-brand {
+    margin-right: 0px;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+.content {
+    width: 40%;
+    text-align: center;
+    padding-top: 12%;
+    margin: 0 auto;
+}
+
+.content-header {
+    padding-top: 25%;
+}
+.content-header img {
+    max-width: 80%;
+    width: 500px;
+}
+
+#banner {
+    background: url('../img/slide3.jpg') no-repeat center -15% fixed;
+    /* background: url('../img/slide1.jpg') no-repeat center -15% fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.success-page #banner {
+    background-image: none;
+    /* background-color: #fcb329; */
+    background-color: #000;
+}
+
+#banner h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    font-family: "Roboto";
+    /* max-width: 300px; */
+    margin: 0 auto 15%;
+}
+
+#banner h1 span {
+    color: #f08212;
+    border-bottom: 4px solid #f08212;
+}
+
+#banner h2 {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Roboto';
+    color: #0c1119;
+    margin-bottom: 5%;
+}
+
+#banner p {
+    color: #0c1119;
+    font-size: 16px;
+}
+
+
+/* BUTTON STYLES */
+
+.btn {
+    color: #fff;
+    font-size: 16px;
+    padding: 13px 45px;
+    text-transform: none;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-start {
+    border: none;
+    background-image: linear-gradient(#181bf5, #5b5cc1);
+}
+
+.btn-back {
+    color: #fe8b04 !important;
+    border-color: #fe8b04;
+}
+
+.btn:hover {
+    color: #fff !important;
+    border-color: #fe8b04;
+    background-image: linear-gradient(#f08212, #a7591b);
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#start {
+    text-align: center;
+    overflow-x: hidden;
+    margin-bottom: 40px;
+}
+
+#morethan {
+    text-align: center;
+    position: relative;
+}
+
+#morethan fieldset {
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+#start h3 {
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: "Roboto";
+    margin-bottom: 20px;
+}
+
+
+/*Hide all except first fieldset*/
+
+#morethan fieldset:not(:first-of-type) {
+    display: none;
+}
+
+
+/* Each Step */
+
+.slider-step {
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.2);
+    background-color: #fafafa;
+    padding: 40px 15px 30px;
+    text-align: center;
+    width: 100%;
+    -webkit-transition: all, 0.3s linear;
+    -moz-transition: all, 0.3s linear;
+    -ms-transition: all, 0.3s linear;
+    -o-transition: all, 0.3s linear;
+    transition: all, 0.3s linear;
+}
+
+
+/* Button */
+
+.btn-next,
+.btn-back {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.form-intro p {
+    margin-bottom: 2px;
+}
+
+.form-intro>.row:last-of-type {
+    padding: 20px 0px;
+    margin-top: 20px;
+    background-color: #033c7e;
+}
+
+.form-control {
+    color: #eee;
+    font-size: 14px;
+    margin: 15px 0px;
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.call-to-action {
+    margin-top: 15px;
+}
+
+.file-upload-wrapper {
+    max-width: 600px;
+}
+
+#morethan label {
+    /* max-width: 100%; */
+    width: 100%;
+    height: 260px;
+    display: table;
+    border: 1px dashed #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#morethan label>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#main-hustle-prev-case,
+#side-hustle-prev-case {
+    display: none;
+}
+
+#main-hustle-prev-case,
+#side-hustle-prev-case {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /* width: 600px; */
+    width: 100%;
+    height: 260px;
+}
+
+#main-hustle-prev-case img,
+#side-hustle-prev-case img {
+    width: auto;
+    height: 100%;
+}
+
+.hide-me {
+    opacity: 0;
+}
+
+.call-to-action>div,
+.form-intro .row>div,
+#step-main-hustle .row>div,
+#step-side-hustle .row>div {
+    margin: 0 auto;
+}
+
+#step-main-hustle,
+#step-side-hustle {
+    padding-top: 0px;
+}
+
+#step-main-hustle>.row:first-of-type {
+    padding: 30px 0px;
+    background-color: #00a8bd;
+}
+
+#step-side-hustle>.row:first-of-type {
+    padding: 40px 0px 30px;
+    background-color: #000;
+}
+
+.image-upload p {
+    color: #fff;
+    max-width: 160px;
+    margin: 6px auto 0;
+}
+
+.image-upload p span {
+    color: #033c7e;
+    text-decoration: underline;
+}
+
+input#create-image {
+    margin-top: 20px !important;
+}
+
+#error1,
+#error2,
+#error3 {
+    display: none;
+    color: #ff0000;
+}
+
+.success-page .content {
+    width: 69%;
+    position: relative;
+    margin: 5% auto 7%;
+    padding: 0%;
+    /* padding: 7% 0px 14%; */
+    /* padding: 14% 0px 4.4%; */
+    overflow: hidden;
+}
+#slant-acr {
+    position: absolute;
+    background-color: #f28410;
+    top: -220px;
+    left: 120px;
+    width: 5px;
+    height: 400px;
+    z-index: 9;
+    transform: rotate(44deg);
+}
+
+#download-content {
+    position: relative;
+}
+
+#default-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#banner #profession {
+    color: #3f372c;
+    font-size: 30px;
+    padding: 0px 2.5%;
+    font-weight: bolder;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+}
+
+#banner #profession span {
+    color: #f28410;
+    border-bottom: 2px solid #f28410;
+}
+
+#merged-img {
+    /* max-width: 95%; */
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    /* border: 3.5px solid #f28410; */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+#main-img,
+#side-img {
+    width: 50%;
+    float: left;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#congratulation {
+    background: url('../img/complete-bg.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#congratulation .row>div {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 560px;
+    padding-top: 50px;
+}
+
+#congratulation h2 {
+    color: #1a1918;
+    font-weight: bolder;
+    font-family: 'Roboto';
+    font-size: 40px;
+    margin-bottom: 24px;
+}
+
+#congratulation ul li {
+    display: inline-block;
+    margin: 10px 15px 0;
+}
+
+#congratulation ul li a {
+    display: block;
+    cursor: pointer;
+}
+
+#congratulation ul li:first-child a {
+    color: #00a8bd;
+}
+
+#congratulation ul li:last-child a {
+    color: #033c7e;
+}
+
+#congratulation ul li a:hover,
+#congratulation ul li a:hover i,
+#congratulation ul li a:hover p {
+    color: #fe8b04;
+}
+
+#congratulation ul li a:hover p {
+    text-decoration: underline;
+}
+
+#congratulation ul li p {
+    font-size: 13px;
+}
+
+#banner p#gig {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.6);
+}
+#banner p#gig span {
+    color: #f28410;
+    font-weight: bold;
+    background: transparent;
+}
+
+/* Style all font awesome icons */
+#image_share_icon .fa {
+    padding: 10px 16px !important;
+    font-size: 30px;
+    border-radius: 49%;
+    text-align: center;
+    text-decoration: none;
+}
+
+#image_share_icon .fa.fa-twitter {
+    padding: 10px 11px !important;
+}
+/* Add a hover effect if you want */
+#image_share_icon .fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+#image_share_icon .fa-facebook {
+  background: #3B5998;
+  color: #fff;
+}
+
+/* Twitter */
+#image_share_icon .fa-twitter {
+  background: #55ACEE;
+  color: #fff;
+}
+
+input[type="file"] {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*Media Queries*/
+
+@media screen and (min-width:0px) and (max-width:1999px) {
+    .content {
+        width: 50%;
+    }
+    div#download-content img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:991px) {
+    #banner {
+        background: url('../img/slide1.jpg') no-repeat center 100%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .content {
+        width: 65%;
+        margin-bottom: 35px;
+    }
+    #banner h1 {
+        font-size: 40px;
+        max-width: 260px;
+    }
+    #morethan p {
+        font-size: 15px;
+    }
+    #morethan ol li {
+        font-size: 14px;
+    }
+    #congratulation {
+        padding: 0px 25px;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    #slant-acr {
+        top: -255px;
+    }
+    #banner p#gig {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:900px) {
+    section#home {
+        background-color: #fec34b;
+    }
+    #banner h1 {
+        margin: 0 auto 5%;
+    }
+    #banner h2 {
+        font-size: 15px;
+        margin-bottom: 3%;
+    }
+    .home #banner p {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:850px) {
+    .call-to-action>div.col-xs-12,
+    .form-intro .row>div.col-sm-6,
+    #step-main-hustle .row>div.col-sm-6,
+    #step-side-hustle .row>div.col-sm-6 {
+        -ms-flex: 0 0 70%;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:800px) {
+    .success-page #banner {
+        height: auto;
+    }
+    #banner #profession {
+        font-size: 23px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:767px) {
+    .home .content {
+        width: 85%;
+    }
+    #slant-acr {
+        top: -280px;
+    }
+    #banner p#gig {
+        font-size: 10px;
+        padding: 4px 3px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:695px) {
+    .home #banner {
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    .home .content {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:650px) {
+    .home #banner,
+    .home section#home {
+        height: 100%;
+        max-height: 341px;
+    }
+    #banner h1 {
+        font-size: 20px;
+        max-width: 100%;
+    }
+    .home .content {
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:605px) {
+    .call-to-action>div.col-xs-12,
+    .form-intro .row>div.col-sm-6,
+    #step-main-hustle .row>div.col-sm-6,
+    #step-side-hustle .row>div.col-sm-6 {
+        -ms-flex: 0 0 90%;
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:500px) {
+    #logos {
+        margin: 1px 0px;
+    }
+    .home #banner {
+        position: relative;
+    }
+    .home #banner>div:before {
+        content: '';
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.1);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .home .content {
+        position: relative;
+    }
+    .home #banner p {
+        color: #e2edff;
+    }
+    .btn {
+        font-size: 14px;
+        padding: 10px 30px;
+    }
+    .success-page .content {
+        width: 85%;
+        position: relative;
+        margin: 5% auto;
+        padding: 7% 0px 17%;
+        /* padding: 11% 0px 4.4%; */
+    }
+    #banner #profession {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #congratulation h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    #congratulation p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    /* #slant-acr {
+        top: -102px;
+    } */
+}
+
+@media screen and (min-width:0px) and (max-width:450px) {
+    .call-to-action>div.col-xs-12,
+    .form-intro .row>div.col-sm-6,
+    #step-main-hustle .row>div.col-sm-6,
+    #step-side-hustle .row>div.col-sm-6 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:400px) {
+    #banner #profession {
+        font-size: 16px;
+    }
+    #morethan p,
+    #morethan ol li {
+        font-size: 13px;
+        /* text-align: left; */
+        line-height: 18px;
+        margin-bottom: 10px;
+    }
+    #slant-acr {
+        top: -290px;
+    }
+    #banner p#gig {
+        right: 5%;
+        font-size: 9px;
+        padding: 3px 4px;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:350px) {
+    .navbar-brand img {
+        width: 70px;
+    }
+    .success-page .content {
+        width: 90%;
+    }
+    #banner #profession {
+        font-size: 14px;
+    }
+    #slant-acr {
+        top: -295px;
+    }
+}
