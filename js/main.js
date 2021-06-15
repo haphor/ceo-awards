@@ -23,17 +23,8 @@ $(document).ready(function() {
         if (animating) return false;
         animating = true;
 
-        current_fs = $(this)
-            .parent()
-            .parent()
-            .parent()
-            .parent();
-        next_fs = $(this)
-            .parent()
-            .parent()
-            .parent()
-            .parent()
-            .next();
+        current_fs = $(this).parent().parent().parent().parent();
+        next_fs = $(this).parent().parent().parent().parent().next();
 
         //show the next fieldset
         next_fs.show();
@@ -80,17 +71,8 @@ $(document).ready(function() {
                 if (animating) return false;
                 animating = true;
 
-                current_fs = $(this)
-                    .parent()
-                    .parent()
-                    .parent()
-                    .parent();
-                next_fs = $(this)
-                    .parent()
-                    .parent()
-                    .parent()
-                    .parent()
-                    .next();
+                current_fs = $(this).parent().parent().parent().parent();
+                next_fs = $(this).parent().parent().parent().parent().next();
 
                 //show the next fieldset
                 next_fs.show();
@@ -126,17 +108,8 @@ $(document).ready(function() {
         if (animating) return false;
         animating = true;
 
-        current_fs = $(this)
-            .parent()
-            .parent()
-            .parent()
-            .parent();
-        previous_fs = $(this)
-            .parent()
-            .parent()
-            .parent()
-            .parent()
-            .prev();
+        current_fs = $(this).parent().parent().parent().parent();
+        previous_fs = $(this).parent().parent().parent().parent().prev();
 
         //show the previous fieldset
         previous_fs.show();
@@ -216,4 +189,77 @@ $(document).ready(function() {
         readURL2(this);
         $("#morethan #step-side-hustle label").addClass("hide-me");
     });
+
+	var $modal = $('#modal');
+
+	var image = document.getElementById('sample_image');
+
+	var cropper;
+
+    $('#input-file-side-hustle').change(function(event){
+
+        $("#morethan #step-side-hustle label").addClass("hide-me");
+
+		var files = event.target.files;
+
+		var done = function(url){
+			image.src = url;
+			$modal.modal('show');
+		};
+
+		if(files && files.length > 0)
+		{
+			reader = new FileReader();
+			reader.onload = function(event)
+			{
+				done(reader.result);
+			};
+			reader.readAsDataURL(files[0]);
+		}
+	});
+
+	$modal.on('shown.bs.modal', function() {
+		cropper = new Cropper(image, {
+			aspectRatio: 1,
+			viewMode: 3,
+			preview:'.preview'
+		});
+	}).on('hidden.bs.modal', function(){
+		cropper.destroy();
+   		cropper = null;
+	});
+
+	$('#crop').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:700,
+			height:700
+		});
+
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+                // $("#side-hustle-prev").attr("src", base64data);
+                // $("#input-file-side-hustle-crop").attr("value", base64data);
+				// $modal.modal('hide');
+                // $("#side-hustle-prev-case").show();
+				$.ajax({
+					url:'/ceo-awards/save_image.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(data)
+					{
+						$modal.modal('hide');
+                        $("#side-hustle-prev").attr("src", data);
+                        // reader.readAsDataURL(input.files[0]);
+                        $("#side-hustle-prev-case").show();
+                        $("#input-file-side-hustle-crop").attr("value", data);
+					}
+				});
+			};
+		});
+	});
+
 });

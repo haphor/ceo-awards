@@ -17,6 +17,8 @@
  <!-- Material Design Bootstrap -->
  <link type="text/css" rel="stylesheet" href="./css/mdb.min.css" media="screen,projection" />
  <link type="text/css" rel="stylesheet" href="./css/mdb.lite.min.css" media="screen,projection" />
+ <!-- Cropper css-->
+ <link href="./css/cropper.css" rel="stylesheet" type="text/css">
  <!-- My custom css -->
  <link type="text/css" rel="stylesheet" href="./css/style.css" media="screen,projection" />
 
@@ -57,16 +59,16 @@
      <form id="morethan" action="success.php" method="post" enctype="multipart/form-data">
       <fieldset>
        <!-- Side gig -->
-       <div id="step-side-hustle" class="slider-step step" data-back-to="step-main-hustle">
+       <div id="step-side-hustle" class="slider-step step image_area" data-back-to="step-main-hustle">
         <div class="row">
          <div class="col-12 col-sm-6 ">
           <div class="file-upload-wrapper">
            <h3>Upload image</h3>
-           <div class="image-upload" style="position: relative;">
+           <div id="image-upload-case" class="image-upload" style="position: relative;">
             <div id="side-hustle-prev-case" style="top: 0px;">
-             <img id="side-hustle-prev" src="#" alt="Your Side Gig Image" />
-             <button id="btn-file-reset" class="btn btn-start" type="button"
-              style="position: absolute; top: 0; z-index: 999999; padding: 5px 10px; margin-top: 0; font-weight: bolder;">X</button>
+             <img id="side-hustle-prev" name="side_hustle"src="#" alt="Your Side Gig Image" />
+             <button id="btn-file-reset" class="btn btn-start" type="button" style="position: absolute; top: 0; z-index: 999999; padding: 5px 10px; margin-top: 0; font-weight: bolder;">X</button>
+             <!-- <button id="crop_wish" class="btn btn-crop" type="button" style="position: absolute; bottom: 0; z-index: 999999; padding: 5px 10px; margin-top: 0; font-weight: bolder;"><i class="fa fa-crop" aria-hidden="true"></i></button> -->
             </div>
             <label id="watermark_drag" for="input-file-side-hustle">
              <div>
@@ -74,10 +76,10 @@
               <p>Drop your image here or <span>browse</span></p>
              </div>
             </label>
-            <input type="file" name="side_hustle" id="input-file-side-hustle" class="file-upload" tabindex="6"
-             style="position: absolute; top: 0; left: -100%; opacity: 0; width: 1000%; height: 100%; display: block;">
+            <input type="file" name="side_hustle" id="input-file-side-hustle" class="file-upload" tabindex="6" style="position: absolute; top: 0; left: -100%; opacity: 0; width: 1000%; height: 100%; display: block;">
            </div>
            <input type="text" name="caption" placeholder="Enter your watermark caption here" tabindex="7" class="form-control" required>
+           <input type="text" name="side_hustle_crop" id="input-file-side-hustle-crop" tabindex="7" style="display: none;">
            <p id="error3"></p>
           </div>
          </div>
@@ -92,6 +94,34 @@
 
       <div class="clear"></div>
      </form>
+     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Crop Image Before Upload</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="img-container">
+                <div class="row">
+                  <div class="col-md-8">
+                    <img src="" id="sample_image" />
+                  </div>
+                  <div class="col-md-4">
+                    <div class="preview"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="crop" class="btn btn-primary">Crop</button>
+              <button type="button" id="modal-btn-file-reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+			</div>
     </div>
     <!-- Offset -->
    </div>
@@ -115,14 +145,17 @@
  <script type="text/javascript" src="./js/popper.min.js"></script>
  <!-- Bootstrap core JavaScript -->
  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+ <!-- Cropper Javascript -->
+ <script type="text/javascript" src="./js/cropper.js"></script>
  <!-- html2canvas Javascript -->
  <script type="text/javascript" src="./js/html2canvas.js"></script>
  <!-- custom Javascript -->
  <script type="text/javascript" src="./js/main.js"></script>
  <script type="text/javascript">
  $(document).ready(function() {
-  $('#btn-file-reset').on('click', function() {
+  $(' #btn-file-reset, #modal-btn-file-reset ').on('click', function() {
    $('#input-file-side-hustle').val('');
+   $('#input-file-side-hustle-crop').val('');
    $("#side-hustle-prev").attr("src", " ");
    $("#side-hustle-prev-case").hide();
    $("#morethan #step-side-hustle label").removeClass("hide-me");

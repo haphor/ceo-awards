@@ -5,7 +5,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>I Am More | Complete</title>
+ <title>CEO Awards | Complete</title>
  <!--Favicon-->
  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
  <!-- Lato GoogleFont-->
@@ -31,19 +31,20 @@
 	if(isset($_POST['btn_insert']))
 	{
     $caption=$_POST['caption'];
+    $image_path=$_POST['side_hustle_crop'];
 
-    $images2=$_FILES['side_hustle']['name'];
-		$tmp_dir2=$_FILES['side_hustle']['tmp_name'];
-		$imageSize2=$_FILES['side_hustle']['size'];
+    // $images2=$_FILES['side_hustle_crop']['name'];
+		// $tmp_dir2=$_FILES['side_hustle_crop']['tmp_name'];
+		// $imageSize2=$_FILES['side_hustle_crop']['size'];
 
-		$upload_dir='upload/';
-		$imgExt2=strtolower(pathinfo($images2,PATHINFO_EXTENSION));
-		$valid_extensions=array('jpeg', 'jpg', 'png', 'gif', 'pdf');
-		$sideProfile=rand(1000, 1000000).".".$imgExt2;
-		move_uploaded_file($tmp_dir2, $upload_dir.$sideProfile);
+		// $upload_dir='upload/';
+		// $imgExt2=strtolower(pathinfo($images2,PATHINFO_EXTENSION));
+		// $valid_extensions=array('jpeg', 'jpg', 'png', 'gif', 'pdf');
+		// $sideProfile=rand(1000, 1000000).".".$imgExt2;
+		// move_uploaded_file($tmp_dir2, $upload_dir.$sideProfile);
 		$stmt=$db_conn->prepare('INSERT INTO morethan_award( side, caption ) VALUES ( :spic, :desc )');
     $stmt->bindParam(':desc', $caption);
-		$stmt->bindParam(':spic', $sideProfile);
+		$stmt->bindParam(':spic', $image_path);
 		if($stmt->execute())
 		{
       ?>
@@ -61,7 +62,7 @@
  <?php
 		}
 
-    $_SESSION['user_id'] = $sideProfile;
+    $_SESSION['user_id'] = $image_path;
 	}
 ?>
  <!-- end Insert script -->
@@ -99,7 +100,8 @@
         <div class="caption">
           <p>"<?php echo $row['caption']; ?>"</p>
         </div>
-      <div id="side-img" style="width: 100%;"><img src="upload/<?php echo $row['side']; ?>" width="1000px" height="1000px"></div>
+      <div id="side-img" style="width: 100%;"><img src="<?php echo $row['side']; ?>" width="1000px" height="1000px"></div>
+      <!-- <div id="side-img" style="width: 100%;"><img src="upload/<?php //echo $row['side']; ?>" width="1000px" height="1000px"></div> -->
      </div>
     </div>
     <?php } ?>
