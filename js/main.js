@@ -246,7 +246,7 @@ $(document).ready(function() {
 				// $modal.modal('hide');
                 // $("#side-hustle-prev-case").show();
 				$.ajax({
-					url:'http://awards.anakleapps.com/save_image.php',
+					url:'../save_image.php',
 					method:'POST',
 					data:{image:base64data},
 					success:function(data)
