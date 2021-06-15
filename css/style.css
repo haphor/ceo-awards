@@ -600,7 +600,9 @@ input[type="file"] {
 .cropper-container.cropper-bg {
     max-width: 100%;
 }
-
+.modal-open .modal {
+    z-index: 99999999999999;
+}
 /*Media Queries*/
 
 @media screen and (min-width:0px) and (max-width:1999px) {
